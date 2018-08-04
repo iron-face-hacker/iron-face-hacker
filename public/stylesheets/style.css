@@ -1,0 +1,181 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+button:hover{
+  transform: scale(1.02);
+}
+
+body {
+  font: 14px "Montserrat", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+
+a {
+  color: rgb(7, 96, 131);
+  text-decoration: none !important;
+}
+
+nav{
+  margin-bottom: 30px;
+}
+
+input{
+  margin: 5px 0;
+  border-radius: 4px !important;
+  height: 41px !important;
+}
+
+textarea{
+  resize: none;
+  /* border: none !important; */
+}
+
+.red{
+  color:red;
+}
+
+.block{
+  display: block;
+}
+
+i{
+  color: black;
+}
+
+nav i{
+  font-size: 25px;
+}
+
+.comment i{
+  font-size: 12px;
+}
+
+.smallIcon{
+  font-size: 15px;
+  float: right;
+}
+
+img{
+  border-radius: 5px;
+}
+
+.imagePost{
+  width: 200px;
+  padding: 20px;
+  border-radius: 25px; 
+}
+
+h1{
+  font-weight: 300 !important;
+}
+
+.borderRadius{
+  border-radius: 5px; 
+}
+
+.text-align{
+  text-align: center;
+}
+
+.marginTopBottom .row{
+  margin: 40px 0;
+}
+
+.userSession{
+  padding-top: 10px;
+  display: block;
+}
+
+.removeBorder{
+  border: none !important;
+}
+
+.imageProfile{
+  /* width: 100%; */
+}
+
+li{
+  list-style: none;
+}
+
+.left-nav > ul >li{
+  margin: 80px 0;
+}
+
+.badge{
+  color: black;
+}
+
+.badge-warning{
+  background-color: rgb(252, 248, 200)
+}
+
+.badge-info{
+  background-color: rgb(221, 237, 246)
+}
+
+
+.formInline{
+  display: inline;
+}
+
+.floatRight{
+float: right;
+}
+
+label{
+  font-weight: 100;
+}
+
+.alert-warning a, .alert-info a{
+  margin-left: 10px;
+}
+
+.left-nav {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* .displayInline{
+  border: 1px solid rgb(67, 67, 70);
+  border-radius: 40px;
+} */
+
+.displayInline li{
+  display: inline;
+  margin: 0 20px;
+  font-weight: 900;
+}
+
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+.shadow{
+  box-shadow: 0 0.7rem 2rem rgba(0,0,0,0.1)!important
+}
+
+/* .flex{
+  display: flex;
+  justify-content: space-around;
+} */
+
+
+.main-nav{
+  transition: all .4s;
+}
+
+.main-nav.oculto {
+  transform: translateY(-140%);
+}
+
+#svgStar *{
+  fill: white;
+  stroke: #000000;
+  stroke-width: 1;
+}

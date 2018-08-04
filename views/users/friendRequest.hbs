@@ -1,0 +1,75 @@
+{{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+    {{else}}
+    
+    {{#each pendingRequests as |pendingRequest|}}
+    
+    <div>
+
+        {{#isNotMe pendingRequest.owner ../session pendingRequest.receiver pendingRequest}}
+        <div class="alert alert-info">
+            <img src="{{pendingRequest.receiver.image}}" style="width: 30px;" alt="image">
+            {{pendingRequest.receiver.name}}
+            <span class="badge badge-danger" style="float:right;">INVITATION SENT</span>
+            {{else}}
+            <img src="{{pendingRequest.owner.image}}" style="width: 30px;" alt="image">
+             {{pendingRequest.owner.name}}
+              <form action="/friendship/{{pendingRequest._id}}/accept" method="post">
+                  <button type="submit" class="badge badge-warning" style="float:right;">ACCEPT REQUEST</button>
+              </form>
+              <p>/friendship/{{pendingRequest._id}}/accept</p>
+        </div>
+        {{/isNotMe}}
+</div>
+{{/each}} 
+
+{{/if}}
+
+
+{{!-- 
+{{#if error}}
+    <div class="alert alert-danger">{{error}}</div>
+    {{else}}
+    
+    {{#each pendingRequests as |pendingRequest|}}
+    <div class="alert alert-info">
+        {{#each pendingRequest.users as |user|}}
+        
+            {{#isNotMe user ../../session}}
+                {{user.name}}
+                <span class="badge badge-danger" style="float:right;">INVITATION SENT</span>
+                {{else}}
+                 <span class="badge badge-danger" style="float:right;">ACCEPT</span>
+            {{/isNotMe}}
+        {{/each}}
+</div>
+
+{{/each}} 
+
+{{/if}} --}}
+
+
+
+{{!-- {{#if error}}  
+    <div class="alert alert-danger">{{error}}</div>
+    {{else}}
+    
+    {{#each pendingRequests as |pendingRequest|}}
+    <div class="alert alert-info">
+        {{#each pendingRequest.users as |user|}}
+            {{#isNotMe user ../../session}}
+                {{user.name}}
+                {{#isNotMe ../pendingRequest.owner user}}
+                    <span class="badge badge-danger" style="float:right;">INVITATION SENT</span>
+                {{else}}
+                    <span class="badge badge-danger" style="float:right;">ACCEPT REQUEST</span>
+                {{/isNotMe}}
+            {{/isNotMe}}
+        {{/each}}
+</div>
+
+{{/each}} 
+
+{{/if}} --}}
+
+

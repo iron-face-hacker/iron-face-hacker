@@ -1,0 +1,42 @@
+  {{#each posts as |post|}}
+    <div class="row">
+        <div class="comment shadow" style="padding: 10px; margin: 10px 0;">
+            <img class="mr-3" src="{{../user.image}}" style="width:30px;" alt="image">
+            <div class="media-body">
+                <div class="row">
+
+                    <div class="col-8">
+                        <small>{{datetime post.createdAt}}</small>
+                        <h6>{{upperCase post.title}}</h6>
+                    </div>
+                    
+                    <div class="col-1">
+                        <a href=""><i class="far fa-share-square"></i></a>
+                    </div>
+
+                    <div class="col-1">
+                         <form action="/users/{{../user.id}}/posts/{{post.id}}/like" method="POST" class="formInline">
+                             <button type="submit" class="removeBorder" style="background-color: transparent;"><i class="far fa-thumbs-up" style="cursor:pointer;"></i></button>
+                            <span>{{post.likes}}</span>
+                        </form>
+                    </div>
+
+                    <div class="col-1">
+                        <form action="" method="POST" class="formInline">
+                            <a href=""><i class="far fa-comment"></i></a>
+                        </form>
+                    </div>
+
+                    <div class="col-1">
+                        {{#isOwneredByOwnSession ../user ../session}}
+                            <form action="/users/{{../user.id}}/posts/{{post.id}}/delete" method="POST" class="formInline">
+                                <button type="submit" class="removeBorder" style="background-color: transparent;"><i href="javascript;" class="far fa-trash-alt"></i></button>
+                            </form>
+                        {{/isOwneredByOwnSession}}
+                    </div>
+                </div>
+                <small>{{post.text}}</small>
+            </div>
+        </div>
+    </div>
+    {{/each}}
