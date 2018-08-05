@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const DB_NAME = 'facebook';
-const URI = process.env.MONGO_URI;
+const URI = 'mongodb://localhost/facebook';
 
 mongoose.connect(URI,  { useMongoClient: true })
 .then(()=>{

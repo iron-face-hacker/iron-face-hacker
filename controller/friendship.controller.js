@@ -5,13 +5,15 @@ const Friendship = require("../models/frienship.model");
 const User = require("../models/user.model");
 
 module.exports.doCreate = (req, res, next) => {
+    console.log('dsa');
+    
     const me = req.user._id.toString();
     const friend = req.params.id;
     
     Friendship.find({ users: { $all: [me, friend] } })
     .then(friendship => {
         if (friendship && friendship.length > 0) {
-            console.log("FRIENDSHIP EXISTS", friendship[0].status);
+            console.log("FRIENDSHIP EXISTS: ", friendship);
             
             res.redirect("/users/list");
         } else {
@@ -69,7 +71,7 @@ module.exports.acceptFriendship = (req, res, next) => {
     
     Friendship.findByIdAndUpdate(req.params.id, { $set: { status: "FRIENDS" } }, { new: true })
     .then(friendship => {
-        console.log('FRIENDSHIP ACCEPTED, ' + friendship);
+        console.log('FRIENDSHIP ACCEPTED, ' + friendship.status);
         res.redirect(`/${req.user._id}`)
 
     })

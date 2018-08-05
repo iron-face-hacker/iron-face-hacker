@@ -19,7 +19,7 @@
 
         {{#isNotFriend user ../session ../friendships}} 
             <form action="/friendship/{{user.id}}/create" method="POST">
-                <button type="submit" class="btn btn-primary btn-sm">Follow</button>
+                <button type="submit" class="btn btn-primary btn-sm" style="float:right;">Follow</button>
             </form>
         {{else}} 
         {{/isNotFriend}}

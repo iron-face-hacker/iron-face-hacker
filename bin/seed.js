@@ -1,4 +1,5 @@
 require('../configs/db.config');
+
 const mongoose = require('mongoose');
 const express = require('express');
 const User = require("../models/user.model");
@@ -12,3 +13,4 @@ User.insertMany(users)
 .catch(error =>{
     console.log(error);
 });
+

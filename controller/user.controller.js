@@ -98,7 +98,7 @@ module.exports.profile = (req, res, next) => {
     User.findById(userId),
     Post.find({ author: userId })
   ])
-  .then(([user, posts]) => {
+  .then(([user, posts]) => { //destructor 
     
     if (!user) {
       next(createError(404));
@@ -114,13 +114,14 @@ module.exports.profile = (req, res, next) => {
     }
   });
   
-
-
+  
+  
 };
 
 
 
 module.exports.list = (req, res, next) => {
+  //ME QUITO ASI NO SALGO YO
   const criteria = { _id: { $ne: req.user._id }};
   
   if (req.query.name) {
@@ -139,32 +140,21 @@ module.exports.list = (req, res, next) => {
   .sort({'name': 1})
   .then(users => {
     if (users.length === 0) {
-      console.log(users);
-      res.render("users/list", { errors: `No users match ${criteria.name}`});
+      res.render("users/list", { errors: 'No users found'});
     } else{
-
-       Friendship.find({ $or: [{ owner: req.user._id }, { receiver: req.user._id  } ]})
+      
+      Friendship.find({ $or: [{ owner: req.user._id }, { receiver: req.user._id  } ]})
       .then(friendships =>{
         if (friendships) {
-          
-          console.log(friendships);
-          
-          console.log('1');
-          
           res.render("users/list", { users, friendships });
-        } else{
-          console.log('2');
-          
+        } else{          
           res.render("users/list", { users });
         }
       })
-      .catch(error =>{
-        console.log('AAA');
-        
-        console.log(error);
-        
+      .catch(error =>{        
+        next(error);
       });
-
+      
     }
   })
   .catch(error => {
